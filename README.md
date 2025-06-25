@@ -1,3 +1,6 @@
+# my-portifolio-gabriel
+my portfolio written with react and taillwind
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
