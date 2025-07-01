@@ -1,57 +1,73 @@
 import React from 'react';
-import bgVideo from '../assets/gift-backrground.mp4';
-import minhaFoto from '../assets/foto-perfil.png';
-import resume from '../assets/gabriel-de-souza-rodrigues.pdf';
+import { Link } from 'react-router-dom';
+import imgMain from '../assets/imagem-main.avif';
+
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen text-white overflow-hidden">
-      {/* Vídeo de fundo */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        src={bgVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
-      <div className="absolute inset-0 bg-black bg-opacity-80 z-10" />
-
-      {/* Título topo */}
-      <div className="relative z-20 flex flex-col justify-center items-center min-h-[30vh] text-center px-4">
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-[0_0_8px_#3b82f6]">
-          Sua Solução Tech Começa Aqui.
-        </h1>
-        <p className="text-base sm:text-lg md:text-2xl mt-4 drop-shadow-[0_0_6px_#3b82f6]">
-          Transforme Suas Ideias em Realidade Digital.
-        </p>
+    <section id="home" className="relative py-20 md:py-32 bg-gradient-to-r from-gray-900 to-gray-800 text-white overflow-hidden">
+      {/* Efeito de background (opcional) */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-[url('https://gist.githubusercontent.com/rafaelnacle/1ec0a6a5e50aa4a524a674ce2a1b7d3a/raw/eb213f2ae7430a9cc9d65f5a59a1d10a1f716e0a/pattern.svg')] bg-cover bg-center"></div>
       </div>
 
-      {/* Card com imagem e dados */}
-      <div className="relative z-20 flex justify-center items-center px-4 py-10">
-        <div className="bg-white bg-opacity-10 backdrop-blur-lg p-6 sm:p-8 rounded-xl shadow-lg w-full max-w-4xl flex flex-col md:flex-row items-center gap-6">
-          {/* Foto */}
-          <img
-            src={minhaFoto}
-            alt="Gabriel"
-            className="w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-full border-4 border-white object-cover shadow-md"
-          />
-
-          {/* Informações */}
-          <div className="text-white text-center md:text-left flex flex-col gap-3 md:gap-4 w-full">
-            <h2 className="text-2xl sm:text-3xl font-bold drop-shadow-[0_0_8px_#3b82f6]">Gabriel de Souza</h2>
-            <p><span className="font-semibold drop-shadow-[0_0_8px_#00ffcc]">Email: </span><span className='drop-shadow-[0_0_8px_#3b82f6]'>gabrielsrodriguesdev@gmail.com</span></p>
-            <p><span className="font-semibold drop-shadow-[0_0_8px_#00ffcc]">Nacionalidade:</span> <span className='drop-shadow-[0_0_8px_#3b82f6]'>Brasileiro</span></p>
-            <p><span className="font-semibold drop-shadow-[0_0_8px_#00ffcc]">Endereço:</span> <span className='drop-shadow-[0_0_8px_#3b82f6]'>Brasília</span></p>
-            <div className="flex justify-center md:justify-start">
-              <a
-                href={resume}
-                download="Curriculo-Gabriel"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition"
-              >
-                Download CV
-              </a>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col md:flex-row items-center gap-12">
+          {/* Texto principal */}
+          <div className="w-full md:w-1/2 text-center md:text-left">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Olá, eu sou <span className="text-blue-400">Gabriel</span>
+              <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
+                Desenvolvedor Full Stack
+              </span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-lg mx-auto md:mx-0">
+              Transformo ideias em soluções digitais funcionais e elegantes. 
+              Especializado em criar experiências web modernas e de alto desempenho.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <Link 
+          to="/projects" 
+          className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg"
+        >
+          Ver Projetos
+        </Link>
+        <Link 
+          to="/contact" 
+          className="px-8 py-3 border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105"
+        >
+          Fale Comigo
+        </Link>
             </div>
+          </div>
+
+          {/* Ilustração ou foto (opcional) */}
+          <div className="w-full md:w-1/2 mt-12 md:mt-0">
+            <div className="relative max-w-md mx-auto">
+              <div className="absolute -inset-4 bg-blue-500 rounded-3xl opacity-20 blur-lg"></div>
+              <div className="relative bg-gray-800 rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={imgMain}
+                  alt="Gabriel Silva - Desenvolvedor"
+                  className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Marcas/tecnologias (opcional) */}
+        <div className="mt-20 md:mt-28">
+          <p className="text-gray-400 text-center mb-6">Tecnologias que trabalho:</p>
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12 opacity-80 hover:opacity-100 transition-opacity">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="h-10 w-10 md:h-12 md:w-12" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="h-10 w-10 md:h-12 md:w-12" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="h-10 w-10 md:h-12 md:w-12" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="Tailwind CSS" className="h-10 w-10 md:h-12 md:w-12" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" className="h-10 w-10 md:h-12 md:w-12" />
           </div>
         </div>
       </div>
