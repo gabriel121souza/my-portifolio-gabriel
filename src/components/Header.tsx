@@ -7,7 +7,7 @@ const Header: React.FC = () => {
   <div className="container mx-auto px-4">
     <nav className="flex flex-col md:flex-row items-center justify-between py-4">
       <Link to="/" className="text-white text-2xl font-bold hover:text-blue-400 transition-colors">
-        Space GTech Solutions
+        Gabrie S. Rodrigues
       </Link>
       <ul className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
         <li><Link to="/" className="text-white hover:text-blue-400 transition-colors px-3 py-2 rounded hover:bg-gray-800">Home</Link></li>
