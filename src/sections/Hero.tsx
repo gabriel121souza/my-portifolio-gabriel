@@ -59,17 +59,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Marcas/tecnologias (opcional) */}
-        <div className="mt-20 md:mt-28">
-          <p className="text-gray-400 text-center mb-6">Tecnologias que trabalho:</p>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-12 opacity-80 hover:opacity-100 transition-opacity">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="h-10 w-10 md:h-12 md:w-12" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="h-10 w-10 md:h-12 md:w-12" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="h-10 w-10 md:h-12 md:w-12" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="Tailwind CSS" className="h-10 w-10 md:h-12 md:w-12" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" className="h-10 w-10 md:h-12 md:w-12" />
-          </div>
-        </div>
       </div>
     </section>
   );
