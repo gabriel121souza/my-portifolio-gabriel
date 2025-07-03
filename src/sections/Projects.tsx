@@ -9,7 +9,7 @@ const Projects: React.FC = () => {
     public: [
       {
         id: 1,
-        title: 'Sistema de Gestão Financeira',
+        title: 'Sistema de Gestão Alunos Academia',
         description: 'Aplicação pessoal em desenvolvimento para controle de finanças com análise de gastos.',
         technologies: ['React', 'Node.js', 'TypeScript', 'MongoDB'],
         status: 'Em Desenvolvimento',
