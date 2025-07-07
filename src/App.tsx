@@ -10,11 +10,12 @@ import './index.css';
 
 function App() {
   return (
-       <Router>
+    <Router>
       <div className="flex flex-col min-h-screen">
         <Header />
 
-        <main className="flex-grow"> {/* Removemos o padding-top aqui */}
+        {/* Adicione padding-top equivalente à altura do header */}
+        <main className="flex-grow pt-16 md:pt-20"> {/* Ajuste conforme a altura do seu header */}
           <Routes>
             <Route path="/" element={<Hero />} />
             <Route path="/about" element={<About />} />
