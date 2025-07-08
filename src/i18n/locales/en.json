@@ -1,0 +1,147 @@
+{
+  "hero": {
+    "hello": "Hello, I'm",
+    "developer": "Full Stack Developer",
+    "description": "I turn ideas into functional and elegant digital solutions. Specialized in creating modern, high-performance web experiences.",
+    "projects": "View Projects",
+    "contact": "Contact Me"
+  },
+  "header": {
+    "home": "Home",
+    "about": "About Me",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  
+  "footer": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "copyright": "Gabriel Rodrigues. All rights reserved."
+  },
+   "about": {
+    "title": "About",
+    "titleHighlight": "Me",
+    "imageAlt": "Gabriel Silva",
+    "subtitle": "Full Stack Developer",
+    "paragraphs": [
+      "Hello! I'm Gabriel, passionate about technology and creating digital solutions. With over 4 years of experience in the market, I've worked on several challenging projects that allowed me to develop technical and creative skills.",
+      "My journey began as a Backend Programmer with Springboot where I'm most familiar, after 3 years working as a backend developer, I started working with React Js. Today, I combine these two passions to create beautiful, functional interfaces with security and maintainability.",
+      "I believe technology should be accessible and intuitive. My goal is to develop solutions that simplify people's lives while providing a pleasant and memorable experience."
+    ],
+    "info": {
+      "professionLabel": "Profession",
+      "profession": "Full Stack Developer",
+      "locationLabel": "Location",
+      "location": "Brasilia, Brazil",
+      "contactLabel": "Contact",
+      "experienceLabel": "Experience",
+      "experience": "4+ years"
+    },
+    "downloadCv": "Download Resume",
+    "contactButton": "Contact"
+  },
+  "skills": {
+    "title": "My",
+    "titleHighlight": "Skills",
+    "subtitle": "Main technologies I master for back-end and cloud development.",
+    "proficiency": "Proficiency",
+    "relatedTechsTitle": "Related Technologies",
+    "skills": {
+      "java": "Java",
+      "spring": "Spring Boot",
+      "react": "React",
+      "git": "Git",
+      "node": "Node",
+      "angular": "Angular",
+      "typescript": "TypeScript",
+      "docker": "Docker",
+      "cloud": "Cloud"
+    },
+    "relatedTechs": [
+      "REST APIs",
+      "AzureDevOps",
+      "Microservices",
+      "OAuth2",
+      "SQL",
+      "NoSQL",
+      "Kubernetes",
+      "CI/CD",
+      "RabbitMQ"
+    ]
+  },
+  "contact": {
+    "title": "Get in",
+    "titleHighlight": "Touch",
+    "subtitle": "I'm available for opportunities and collaborations. Send me a message!",
+    "emailSubject": "New contact from Gabriel's portfolio",
+    "submitError": "An error occurred while sending. Please try again later.",
+    "connectionError": "Connection error. Check your internet and try again.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message",
+      "sending": "Sending..."
+    },
+    "success": {
+      "title": "Message Sent!",
+      "message": "Thank you for your contact. I will respond as soon as possible.",
+      "button": "Send new message"
+    },
+    "contactInfo": {
+      "title": "Contact Information",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "locationValue": "Brasília, Brazil",
+      "social": "Social Media"
+    }
+  },
+   "projects": {
+    "title": "My",
+    "titleHighlight": "Projects",
+    "subtitle": "Professional projects and personal initiatives under development.",
+    "tabs": {
+      "personal": "Personal",
+      "professional": "Professional"
+    },
+    "status": {
+      "inDevelopment": "In Development"
+    },
+    "roles": {
+      "backendDeveloper": "Backend Developer",
+      "fullstackDeveloper": "Fullstack Developer"
+    },
+    "repository": "Repository",
+    "version": "Version",
+    "projects": {
+      "public": {
+        "project1": {
+      "title": "BodyTecFitness - Gym Management System",
+     "description": "Complete platform for student management, workout tracking and performance metrics, with admin panel and web app."        },
+        "project2": {
+          "title": "Tropical Mesas - Rental Management via WhatsApp",
+          "description": "Integrated solution for order management, reservations and customer service for furniture rental companies, with WhatsApp Business API automation."
+    }        }
+      },
+      "private": {
+        "project1": {
+          "title": "Government Management System",
+          "description": "Platform for process optimization in a federal public agency."
+        },
+        "project2": {
+          "title": "Policy Management System",
+          "description": "Internal platform for managing policies and employees."
+        },
+        "project3": {
+          "title": "Financial System",
+          "description": "Development of management systems for financial institution."
+        },
+        "project4": {
+          "title": "Public Health System",
+          "description": "Platform for public agency in the Health sector."
+        }
+      }
+    }
+  }

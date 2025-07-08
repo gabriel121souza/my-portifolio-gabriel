@@ -1,14 +1,17 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import imgPerfil from '../assets/foto-perfil.png';
 import resume from '../assets/gabriel-de-souza-rodrigues.pdf';
 
-const SobreMim: React.FC = () => {
+const About: React.FC = () => {
+  const { t } = useTranslation('about');
+
   return (
     <section id="about" className="py-16 md:py-24 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-            Sobre <span className="text-blue-600 dark:text-blue-400">Mim</span>
+            {t('title')} <span className="text-blue-600 dark:text-blue-400">{t('titleHighlight')}</span>
           </h2>
           <div className="w-20 h-1 bg-blue-600 dark:bg-blue-400 mx-auto"></div>
         </div>
@@ -20,7 +23,7 @@ const SobreMim: React.FC = () => {
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400 shadow-xl">
                 <img 
                   src={imgPerfil}
-                  alt="Gabriel Silva" 
+                  alt={t('imageAlt')} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -31,24 +34,15 @@ const SobreMim: React.FC = () => {
           {/* Texto sobre mim */}
           <div className="w-full lg:w-2/3">
             <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">
-              Desenvolvedor Full Stack
+              {t('subtitle')}
             </h3>
             
             <div className="prose prose-lg dark:prose-invert max-w-none text-gray-600 dark:text-gray-300 mb-6">
-              <p className="mb-4">
-                Olá! Eu sou Gabriel, um apaixonado por tecnologia e criação de soluções digitais. 
-                Com mais de 4 anos de experiência no mercado, já trabalhei em diversos projetos 
-                desafiadores que me permitiram desenvolver habilidades técnicas e criativas.
-              </p>
-              <p className="mb-4">
-                Minha jornada começou como Programador Backend com Springboot onde tenho mais familiaridade, depois de 3 anos trabalhando como desenvolvedor backend, comecei a trabalhar com React Js. Hoje, combino essas duas paixões para criar interfaces bonitas, funcionais e 
-                com segurança e manutebilidade.
-              </p>
-              <p>
-                Acredito que a tecnologia deve ser acessível e intuitiva. Meu objetivo é desenvolver 
-                soluções que simplifiquem a vida das pessoas enquanto proporcionam uma experiência 
-                agradável e memorável.
-              </p>
+              {t('paragraphs', { returnObjects: true }).map((paragraph: string, index: number) => (
+                <p key={index} className="mb-4">
+                  {paragraph}
+                </p>
+              ))}
             </div>
 
             {/* Informações pessoais */}
@@ -60,8 +54,8 @@ const SobreMim: React.FC = () => {
                   </svg>
                 </span>
                 <div>
-                  <h4 className="font-medium text-gray-800 dark:text-white">Profissão</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Desenvolvedor Full Stack</p>
+                  <h4 className="font-medium text-gray-800 dark:text-white">{t('info.professionLabel')}</h4>
+                  <p className="text-gray-600 dark:text-gray-400">{t('info.profession')}</p>
                 </div>
               </div>
               
@@ -73,8 +67,8 @@ const SobreMim: React.FC = () => {
                   </svg>
                 </span>
                 <div>
-                  <h4 className="font-medium text-gray-800 dark:text-white">Localização</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Brasilia, Brasil</p>
+                  <h4 className="font-medium text-gray-800 dark:text-white">{t('info.locationLabel')}</h4>
+                  <p className="text-gray-600 dark:text-gray-400">{t('info.location')}</p>
                 </div>
               </div>
               
@@ -85,7 +79,7 @@ const SobreMim: React.FC = () => {
                   </svg>
                 </span>
                 <div>
-                  <h4 className="font-medium text-gray-800 dark:text-white">Contato</h4>
+                  <h4 className="font-medium text-gray-800 dark:text-white">{t('info.contactLabel')}</h4>
                   <p className="text-gray-600 dark:text-gray-400">gabrielsrodriguesdev@gmail.com</p>
                 </div>
               </div>
@@ -97,8 +91,8 @@ const SobreMim: React.FC = () => {
                   </svg>
                 </span>
                 <div>
-                  <h4 className="font-medium text-gray-800 dark:text-white">Experiência</h4>
-                  <p className="text-gray-600 dark:text-gray-400">4+ anos</p>
+                  <h4 className="font-medium text-gray-800 dark:text-white">{t('info.experienceLabel')}</h4>
+                  <p className="text-gray-600 dark:text-gray-400">{t('info.experience')}</p>
                 </div>
               </div>
             </div>
@@ -113,7 +107,7 @@ const SobreMim: React.FC = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
-                Baixar CV
+                {t('downloadCv')}
               </a>
               <a 
                 href="#contact" 
@@ -122,7 +116,7 @@ const SobreMim: React.FC = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                Contato
+                {t('contactButton')}
               </a>
             </div>
           </div>
@@ -132,4 +126,4 @@ const SobreMim: React.FC = () => {
   );
 };
 
-export default SobreMim;
+export default About;

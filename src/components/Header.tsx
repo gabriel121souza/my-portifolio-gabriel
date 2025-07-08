@@ -1,12 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import logo from '../assets/space-gtech-2.png';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation('header');
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+
+  // Efeito para sincronizar o estado com as mudanças de idioma
+  useEffect(() => {
+    const handleLanguageChanged = (lng: string) => {
+      setCurrentLanguage(lng);
+    };
+
+    i18n.on('languageChanged', handleLanguageChanged);
+    return () => {
+      i18n.off('languageChanged', handleLanguageChanged);
+    };
+  }, [i18n]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const changeLanguage = async (lng: string) => {
+    try {
+      await i18n.changeLanguage(lng);
+      localStorage.setItem('preferredLanguage', lng);
+    } catch (error) {
+      console.error('Failed to change language:', error);
+    }
   };
 
   return (
@@ -26,54 +50,85 @@ const Header: React.FC = () => {
           </Link>
           
           {/* Menu Desktop */}
-          <ul className="hidden md:flex items-center gap-4 lg:gap-6">
-            <li>
-              <Link 
-                to="/" 
-                className="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm lg:text-base rounded hover:bg-gray-800"
+          <div className="hidden md:flex items-center gap-4">
+            <ul className="flex items-center gap-4 lg:gap-6">
+              <li>
+                <Link 
+                  to="/" 
+                  className="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm lg:text-base rounded hover:bg-gray-800"
+                >
+                  {t('home')}
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/about" 
+                  className="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm lg:text-base rounded hover:bg-gray-800"
+                >
+                  {t('about')}
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/skills" 
+                  className="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm lg:text-base rounded hover:bg-gray-800"
+                >
+                  {t('skills')}
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/projects" 
+                  className="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm lg:text-base rounded hover:bg-gray-800"
+                >
+                  {t('projects')}
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/contact" 
+                  className="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm lg:text-base rounded hover:bg-gray-800"
+                >
+                  {t('contact')}
+                </Link>
+              </li>
+            </ul>
+
+            {/* Seletor de idioma - Desktop */}
+            <div className="ml-4 flex border border-gray-600 rounded-md overflow-hidden bg-gray-800">
+              <button
+                onClick={() => changeLanguage('pt')}
+                className={`px-3 py-1 text-sm transition-colors ${
+                  currentLanguage === 'pt' 
+                    ? 'bg-blue-600 text-white' 
+                    : 'text-gray-300 hover:bg-gray-700'
+                }`}
+                disabled={currentLanguage === 'pt'}
+                aria-label="Português"
               >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link 
-                to="/about" 
-                className="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm lg:text-base rounded hover:bg-gray-800"
+                PT
+              </button>
+              <button
+                onClick={() => changeLanguage('en')}
+                className={`px-3 py-1 text-sm transition-colors ${
+                  currentLanguage === 'en' 
+                    ? 'bg-blue-600 text-white' 
+                    : 'text-gray-300 hover:bg-gray-700'
+                }`}
+                disabled={currentLanguage === 'en'}
+                aria-label="English"
               >
-                Sobre Mim
-              </Link>
-            </li>
-            <li>
-              <Link 
-                to="/skills" 
-                className="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm lg:text-base rounded hover:bg-gray-800"
-              >
-                Habilidades
-              </Link>
-            </li>
-            <li>
-              <Link 
-                to="/projects" 
-                className="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm lg:text-base rounded hover:bg-gray-800"
-              >
-                Projetos
-              </Link>
-            </li>
-            <li>
-              <Link 
-                to="/contact" 
-                className="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm lg:text-base rounded hover:bg-gray-800"
-              >
-                Contato
-              </Link>
-            </li>
-          </ul>
+                EN
+              </button>
+            </div>
+          </div>
 
           {/* Botão Hamburguer Mobile */}
           <button 
             className="md:hidden text-white focus:outline-none"
             onClick={toggleMenu}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMenuOpen ? (
@@ -95,7 +150,7 @@ const Header: React.FC = () => {
                   className="block text-white hover:text-blue-400 transition-colors px-4 py-2 rounded hover:bg-gray-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Home
+                  {t('home')}
                 </Link>
               </li>
               <li>
@@ -104,7 +159,7 @@ const Header: React.FC = () => {
                   className="block text-white hover:text-blue-400 transition-colors px-4 py-2 rounded hover:bg-gray-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Sobre Mim
+                  {t('about')}
                 </Link>
               </li>
               <li>
@@ -113,7 +168,7 @@ const Header: React.FC = () => {
                   className="block text-white hover:text-blue-400 transition-colors px-4 py-2 rounded hover:bg-gray-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Habilidades
+                  {t('skills')}
                 </Link>
               </li>
               <li>
@@ -122,7 +177,7 @@ const Header: React.FC = () => {
                   className="block text-white hover:text-blue-400 transition-colors px-4 py-2 rounded hover:bg-gray-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Projetos
+                  {t('projects')}
                 </Link>
               </li>
               <li>
@@ -131,8 +186,42 @@ const Header: React.FC = () => {
                   className="block text-white hover:text-blue-400 transition-colors px-4 py-2 rounded hover:bg-gray-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Contato
+                  {t('contact')}
                 </Link>
+              </li>
+              
+              {/* Seletor de idioma - Mobile */}
+              <li className="flex justify-center mt-4">
+                <div className="flex border border-gray-600 rounded-md overflow-hidden bg-gray-700">
+                  <button
+                    onClick={() => {
+                      changeLanguage('pt');
+                      setIsMenuOpen(false);
+                    }}
+                    className={`px-4 py-2 transition-colors ${
+                      currentLanguage === 'pt' 
+                        ? 'bg-blue-600 text-white' 
+                        : 'text-gray-300 hover:bg-gray-600'
+                    }`}
+                    disabled={currentLanguage === 'pt'}
+                  >
+                    Português
+                  </button>
+                  <button
+                    onClick={() => {
+                      changeLanguage('en');
+                      setIsMenuOpen(false);
+                    }}
+                    className={`px-4 py-2 transition-colors ${
+                      currentLanguage === 'en' 
+                        ? 'bg-blue-600 text-white' 
+                        : 'text-gray-300 hover:bg-gray-600'
+                    }`}
+                    disabled={currentLanguage === 'en'}
+                  >
+                    English
+                  </button>
+                </div>
               </li>
             </ul>
           </div>
