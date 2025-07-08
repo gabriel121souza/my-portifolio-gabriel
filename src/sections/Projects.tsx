@@ -1,27 +1,29 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaGithub, FaExternalLinkAlt, FaLock, FaCode, FaTools, FaHardHat } from 'react-icons/fa';
 
 const Projects: React.FC = () => {
+  const { t } = useTranslation('projects');
   const [activeTab, setActiveTab] = useState<'public' | 'private'>('public');
 
-  // Dados dos projetos atualizados
+  // Dados dos projetos traduzidos
   const projects = {
     public: [
       {
         id: 1,
-        title: 'Sistema de Gestão Alunos Academia',
-        description: 'Aplicação pessoal em desenvolvimento para controle de finanças com análise de gastos.',
+        title: t('projects.public.project1.title'),
+        description: t('projects.public.project1.description'),
         technologies: ['React', 'Node.js', 'TypeScript', 'MongoDB'],
-        status: 'Em Desenvolvimento',
+        status: t('status.inDevelopment'),
         githubUrl: 'https://github.com/seu-usuario/gestao-financeira',
         imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
       },
       {
         id: 2,
-        title: 'Plataforma de Cursos Online',
-        description: 'Projeto pessoal para criação de cursos com autenticação e vídeos sob demanda.',
+        title: t('projects.public.project2.title'),
+        description: t('projects.public.project2.description'),
         technologies: ['Angular', 'Java', 'Spring Boot'],
-        status: 'Em Desenvolvimento',
+        status: t('status.inDevelopment'),
         githubUrl: 'https://github.com/seu-usuario/plataforma-cursos',
         imageUrl: 'https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
       }
@@ -29,34 +31,34 @@ const Projects: React.FC = () => {
     private: [
       {
         id: 3,
-        title: 'Sistema de Gestão Governamental',
-        description: 'Plataforma para otimização de processos em órgão público federal.',
+        title: t('projects.private.project1.title'),
+        description: t('projects.private.project1.description'),
         technologies: ['Java', 'Spring', 'PostgreSQL'],
-        role: 'Desenvolvedor Backend',
+        role: t('roles.backendDeveloper'),
         imageUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
       },
       {
         id: 4,
-        title: 'Sistema de Gestão de Apólices',
-        description: 'Plataforma interna para gerenciamento de apólices e colaboradores.',
+        title: t('projects.private.project2.title'),
+        description: t('projects.private.project2.description'),
         technologies: ['Java', 'Spring', 'Angular', 'DB2', 'Openshift'],
-        role: 'Desenvolvedor Backend',
+        role: t('roles.backendDeveloper'),
         imageUrl: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
       },
       {
         id: 5,
-        title: 'Sistema Financeiro',
-        description: 'Desenvolvimento de sistemas de gestão para instituição financeira.',
+        title: t('projects.private.project3.title'),
+        description: t('projects.private.project3.description'),
         technologies: ['Java', 'JSP', 'JSF', 'Spring Boot'],
-        role: 'Desenvolvedor Fullstack',
+        role: t('roles.fullstackDeveloper'),
         imageUrl: 'https://images.unsplash.com/photo-1535320903710-d993d3d77d29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
       },
       {
         id: 6,
-        title: 'Sistema de Saúde Pública',
-        description: 'Plataforma para órgão público no ramo da Saúde.',
+        title: t('projects.private.project4.title'),
+        description: t('projects.private.project4.description'),
         technologies: ['Java', 'Spring Boot', 'React', 'OracleDb'],
-        role: 'Desenvolvedor Fullstack',
+        role: t('roles.fullstackDeveloper'),
         imageUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'
       }
     ]
@@ -68,11 +70,11 @@ const Projects: React.FC = () => {
         {/* Título da seção */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-            Meus <span className="text-blue-600 dark:text-blue-400">Projetos</span>
+            {t('title')} <span className="text-blue-600 dark:text-blue-400">{t('titleHighlight')}</span>
           </h2>
           <div className="w-20 h-1 bg-blue-600 dark:bg-blue-400 mx-auto"></div>
           <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Projetos profissionais e iniciativas pessoais em desenvolvimento.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -84,14 +86,14 @@ const Projects: React.FC = () => {
               className={`px-4 py-2 rounded-md flex items-center ${activeTab === 'public' ? 'bg-blue-600 text-white' : 'text-gray-700 dark:text-gray-300'}`}
             >
               <FaCode className="mr-2" />
-              Pessoais
+              {t('tabs.personal')}
             </button>
             <button
               onClick={() => setActiveTab('private')}
               className={`px-4 py-2 rounded-md flex items-center ${activeTab === 'private' ? 'bg-blue-600 text-white' : 'text-gray-700 dark:text-gray-300'}`}
             >
               <FaLock className="mr-2" />
-              Profissionais
+              {t('tabs.professional')}
             </button>
           </div>
         </div>
@@ -112,7 +114,7 @@ const Projects: React.FC = () => {
                 />
                 {activeTab === 'public' && (
                   <div className="absolute top-2 right-2 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    EM DESENVOLVIMENTO
+                    {t('status.inDevelopment').toUpperCase()}
                   </div>
                 )}
               </div>
@@ -163,10 +165,10 @@ const Projects: React.FC = () => {
                         className="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                       >
                         <FaGithub className="mr-2" />
-                        Repositório
+                        {t('repository')}
                       </a>
                       <span className="text-sm text-gray-500 dark:text-gray-400">
-                        Versão 0.1.0
+                        {t('version')} 0.1.0
                       </span>
                     </>
                   ) : (

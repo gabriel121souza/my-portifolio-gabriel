@@ -1,8 +1,10 @@
 import React from 'react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
-
+import { useTranslation } from 'react-i18next';
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation('footer');
+
   return (
     <footer className="bg-gray-900 text-gray-300 py-6 border-t border-gray-700">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
@@ -13,6 +15,7 @@ const Footer: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-colors"
+            aria-label={t('github')}
           >
             <FaGithub className="text-3xl" />
           </a>
@@ -21,15 +24,15 @@ const Footer: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-colors"
+            aria-label={t('linkedin')}
           >
             <FaLinkedin className="text-3xl" />
           </a>
-          {/* Adicione mais links se quiser */}
         </div>
 
         {/* Direitos autorais */}
         <p className="text-sm text-gray-400">
-          &copy; {new Date().getFullYear()} Gabriel Rodrigues. Todos os direitos reservados.
+          &copy; {new Date().getFullYear()} {t('copyright')}
         </p>
       </div>
     </footer>

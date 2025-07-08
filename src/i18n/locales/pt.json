@@ -1,0 +1,148 @@
+{
+  "hero": {
+    "hello": "Olá, eu sou",
+    "developer": "Desenvolvedor Full Stack",
+    "description": "Transformo ideias em soluções digitais funcionais e elegantes. Especializado em criar experiências web modernas e de alto desempenho.",
+    "projects": "Ver Projetos",
+    "contact": "Fale Comigo"
+  },
+  "header": {
+    "home": "Home",
+    "about": "Sobre Mim",
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "contact": "Contato"
+  },
+  "footer": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "copyright": "Gabriel Rodrigues. Todos os direitos reservados."
+  },
+  "about": {
+    "title": "Sobre",
+    "titleHighlight": "Mim",
+    "imageAlt": "Gabriel Silva",
+    "subtitle": "Desenvolvedor Full Stack",
+    "paragraphs": [
+      "Olá! Eu sou Gabriel, um apaixonado por tecnologia e criação de soluções digitais. Com mais de 4 anos de experiência no mercado, já trabalhei em diversos projetos desafiadores que me permitiram desenvolver habilidades técnicas e criativas.",
+      "Minha jornada começou como Programador Backend com Springboot onde tenho mais familiaridade, depois de 3 anos trabalhando como desenvolvedor backend, comecei a trabalhar com React Js. Hoje, combino essas duas paixões para criar interfaces bonitas, funcionais e com segurança e manutebilidade.",
+      "Acredito que a tecnologia deve ser acessível e intuitiva. Meu objetivo é desenvolver soluções que simplifiquem a vida das pessoas enquanto proporcionam uma experiência agradável e memorável."
+    ],
+    "info": {
+      "professionLabel": "Profissão",
+      "profession": "Desenvolvedor Full Stack",
+      "locationLabel": "Localização",
+      "location": "Brasilia, Brasil",
+      "contactLabel": "Contato",
+      "experienceLabel": "Experiência",
+      "experience": "4+ anos"
+    },
+    "downloadCv": "Baixar Curriculo",
+    "contactButton": "Contato"
+  },
+  "skills": {
+    "title": "Minhas",
+    "titleHighlight": "Habilidades",
+    "subtitle": "Principais tecnologias que domino para desenvolvimento back-end e cloud.",
+    "proficiency": "Proficiência",
+    "relatedTechsTitle": "Tecnologias Relacionadas",
+    "skills": {
+      "java": "Java",
+      "spring": "Spring Boot",
+      "react": "React",
+      "git": "Git",
+      "node": "Node",
+      "angular": "Angular",
+      "typescript": "TypeScript",
+      "docker": "Docker",
+      "cloud": "Cloud"
+    },
+    "relatedTechs": [
+      "REST APIs",
+      "AzureDevOps",
+      "Microservices",
+      "OAuth2",
+      "SQL",
+      "NoSQL",
+      "Kubernetes",
+      "CI/CD",
+      "RabbitMQ"
+    ]
+  },
+  "contact": {
+    "title": "Entre em",
+    "titleHighlight": "Contato",
+    "subtitle": "Estou disponível para oportunidades e colaborações. Envie-me uma mensagem!",
+    "emailSubject": "Novo contato do portfólio de Gabriel",
+    "submitError": "Ocorreu um erro ao enviar. Tente novamente mais tarde.",
+    "connectionError": "Erro de conexão. Verifique sua internet e tente novamente.",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "message": "Mensagem",
+      "submit": "Enviar Mensagem",
+      "sending": "Enviando..."
+    },
+    "success": {
+      "title": "Mensagem Enviada!",
+      "message": "Obrigado pelo seu contato. Responderei o mais breve possível.",
+      "button": "Enviar nova mensagem"
+    },
+    "contactInfo": {
+      "title": "Informações para Contato",
+      "email": "Email",
+      "phone": "Telefone",
+      "location": "Localização",
+      "locationValue": "Brasília, Brasil",
+      "social": "Redes Sociais"
+    }
+  },
+  "projects": {
+    "title": "Meus",
+    "titleHighlight": "Projetos",
+    "subtitle": "Projetos profissionais e iniciativas pessoais em desenvolvimento.",
+    "tabs": {
+      "personal": "Pessoais",
+      "professional": "Profissionais"
+    },
+    "status": {
+      "inDevelopment": "Em Desenvolvimento"
+    },
+    "roles": {
+      "backendDeveloper": "Desenvolvedor Backend",
+      "fullstackDeveloper": "Desenvolvedor Fullstack"
+    },
+    "repository": "Repositório",
+    "version": "Versão",
+    "projects": {
+      "public": {
+        "project1": {
+          "title": "BodyTecFitness - Sistema de Gestão para Academias",
+          "description": "Plataforma completa para gerenciamento de alunos, acompanhamento de treinos e métricas de desempenho, com painel administrativo e aplicativo web."
+        },
+        "project2": {
+          "title": "tropical mesas - Sistema de Atendimento e Aluguel via WhatsApp",
+          "description": "Solução integrada para gestão de pedidos, reservas e atendimento ao cliente para empresas de aluguel de móveis, com automação via WhatsApp Business API."
+        }
+      },
+      "private": {
+        "project1": {
+          "title": "Sistema de Gestão Governamental",
+          "description": "Plataforma para otimização de processos em órgão público federal."
+        },
+        "project2": {
+          "title": "Sistema de Gestão de Apólices",
+          "description": "Plataforma interna para gerenciamento de apólices e colaboradores."
+        },
+        "project3": {
+          "title": "Sistema Financeiro",
+          "description": "Desenvolvimento de sistemas de gestão para instituição financeira."
+        },
+        "project4": {
+          "title": "Sistema de Saúde Pública",
+          "description": "Plataforma para órgão público no ramo da Saúde."
+        }
+      }
+    }
+  }
+}
