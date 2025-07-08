@@ -15,19 +15,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: 'npm'
           
       - name: Install dependencies
-        run: npm ci # Mais confiável que npm install para CI
+        run: npm install
           
       - name: Build project
         run: npm run build
-          
-      - name: Debug build files
-        run: ls -la ./dist # Verifique se o build gerou os arquivos corretamente
           
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          scope: ${{ secrets.VERCEL_ORG_ID }}
