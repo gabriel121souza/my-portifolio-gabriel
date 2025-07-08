@@ -6,10 +6,14 @@ import logo from '../assets/space-gtech-2.png';
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t, i18n } = useTranslation('header');
-  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+  const [currentLanguage, setCurrentLanguage] = useState('en'); // Default to English
 
-  // Efeito para sincronizar o estado com as mudanças de idioma
+  // Set English as default language on first load
   useEffect(() => {
+    const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+    i18n.changeLanguage(savedLanguage);
+    setCurrentLanguage(savedLanguage);
+    
     const handleLanguageChanged = (lng: string) => {
       setCurrentLanguage(lng);
     };
@@ -44,12 +48,12 @@ const Header: React.FC = () => {
           >
             <img
               src={logo}
-              alt="Gabriel Silva - Desenvolvedor Full Stack"
+              alt="Gabriel Silva - Full Stack Developer"
               className="h-12 md:h-16 w-auto"
             />
           </Link>
           
-          {/* Menu Desktop */}
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-4">
             <ul className="flex items-center gap-4 lg:gap-6">
               <li>
@@ -94,20 +98,8 @@ const Header: React.FC = () => {
               </li>
             </ul>
 
-            {/* Seletor de idioma - Desktop */}
+            {/* Language Selector - Desktop */}
             <div className="ml-4 flex border border-gray-600 rounded-md overflow-hidden bg-gray-800">
-              <button
-                onClick={() => changeLanguage('pt')}
-                className={`px-3 py-1 text-sm transition-colors ${
-                  currentLanguage === 'pt' 
-                    ? 'bg-blue-600 text-white' 
-                    : 'text-gray-300 hover:bg-gray-700'
-                }`}
-                disabled={currentLanguage === 'pt'}
-                aria-label="Português"
-              >
-                PT
-              </button>
               <button
                 onClick={() => changeLanguage('en')}
                 className={`px-3 py-1 text-sm transition-colors ${
@@ -120,10 +112,22 @@ const Header: React.FC = () => {
               >
                 EN
               </button>
+              <button
+                onClick={() => changeLanguage('pt')}
+                className={`px-3 py-1 text-sm transition-colors ${
+                  currentLanguage === 'pt' 
+                    ? 'bg-blue-600 text-white' 
+                    : 'text-gray-300 hover:bg-gray-700'
+                }`}
+                disabled={currentLanguage === 'pt'}
+                aria-label="Português"
+              >
+                PT
+              </button>
             </div>
           </div>
 
-          {/* Botão Hamburguer Mobile */}
+          {/* Mobile Hamburger Button */}
           <button 
             className="md:hidden text-white focus:outline-none"
             onClick={toggleMenu}
@@ -140,7 +144,7 @@ const Header: React.FC = () => {
           </button>
         </nav>
 
-        {/* Menu Mobile */}
+        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden bg-gray-800 rounded-lg mt-2 mb-4 py-2">
             <ul className="flex flex-col space-y-2">
@@ -190,23 +194,9 @@ const Header: React.FC = () => {
                 </Link>
               </li>
               
-              {/* Seletor de idioma - Mobile */}
+              {/* Language Selector - Mobile */}
               <li className="flex justify-center mt-4">
                 <div className="flex border border-gray-600 rounded-md overflow-hidden bg-gray-700">
-                  <button
-                    onClick={() => {
-                      changeLanguage('pt');
-                      setIsMenuOpen(false);
-                    }}
-                    className={`px-4 py-2 transition-colors ${
-                      currentLanguage === 'pt' 
-                        ? 'bg-blue-600 text-white' 
-                        : 'text-gray-300 hover:bg-gray-600'
-                    }`}
-                    disabled={currentLanguage === 'pt'}
-                  >
-                    Português
-                  </button>
                   <button
                     onClick={() => {
                       changeLanguage('en');
@@ -220,6 +210,20 @@ const Header: React.FC = () => {
                     disabled={currentLanguage === 'en'}
                   >
                     English
+                  </button>
+                  <button
+                    onClick={() => {
+                      changeLanguage('pt');
+                      setIsMenuOpen(false);
+                    }}
+                    className={`px-4 py-2 transition-colors ${
+                      currentLanguage === 'pt' 
+                        ? 'bg-blue-600 text-white' 
+                        : 'text-gray-300 hover:bg-gray-600'
+                    }`}
+                    disabled={currentLanguage === 'pt'}
+                  >
+                    Português
                   </button>
                 </div>
               </li>
